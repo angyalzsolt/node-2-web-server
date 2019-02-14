@@ -24,16 +24,11 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use((req, res, next)=>{
-	res.render('maintence.hbs');
-})
+// app.use((req, res, next)=>{
+// 	res.render('maintence.hbs');
+// })
 
 app.use(express.static(__dirname + '/public'));
-
-
-app.get('/maintance', (req, res) => {
-	res.render
-})
 
 
 hbs.registerHelper('getCurrentYear', () => {
@@ -45,6 +40,12 @@ hbs.registerHelper('screamIt', (text) => {
 	return text.toUpperCase();
 })
 
+
+app.get('/projects', (req, res) => {
+	res.render('projects.hbs', {
+		pageTitle: 'Projects'
+	});
+})
 
 
 app.get('/', (req, res) => {
